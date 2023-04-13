@@ -7,7 +7,7 @@ cmake_policy(SET CMP0104 OLD)
 project (MG_GCN
          LANGUAGES CUDA CXX)
 
-include (GNUInstallDirs)
+# include (GNUInstallDirs)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic -DDEBUG")
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g -DDEBUG -O2")
@@ -61,6 +61,8 @@ set(CMAKE_CUDA_FLAGS_RELEASE "${CMAKE_CUDA_FLAGS_RELEASE} -Xcompiler -O3 -Xcompi
 # ----------------------------------------------------------------------------
 # Depedencies
 # ----------------------------------------------------------------------------
+set(NCCL_INCLUDE_DIR /opt/nvidia/hpc_sdk/Linux_x86_64/22.5/comm_libs/nccl/include)
+set(NCCL_LIB_DIR /opt/nvidia/hpc_sdk/Linux_x86_64/22.5/comm_libs/nccl/lib)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 find_package(CUDAToolkit REQUIRED)
 find_package(NCCL REQUIRED)
